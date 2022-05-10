@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './components/server/server.component';
 import { BaseComponent } from './components/base/base.component';
 import { SuccessAlert } from './components/SuccessAlert/successalert.component';
-import { WarningAlert } from './components/WarningAlert/warningalert.component'
+import { WarningAlert } from './components/WarningAlert/warningalert.component';
+import { CockpitComponent } from './components/cockpit/cockpit.component';
+import { ServerElementComponent } from './components/server-element/server-element.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +16,8 @@ import { WarningAlert } from './components/WarningAlert/warningalert.component'
     BaseComponent,
     SuccessAlert,
     WarningAlert,
+    CockpitComponent,
+    ServerElementComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,30 @@
 
 <div class="container">
+    <app-cockpit 
+        (serCreated)='onServerAdded($event)'
+        (bluePrintCreated)='onBluePrintAdded($event)'
+    ></app-cockpit>
     <div class="row">
-        <h1>Learn  {{ title }}</h1>
-        <hr>
-        <app-base></app-base>
+        <div class="col-xs-12">
+            <button class="btn btn-primary mt-3" *ngIf="serverElements.length > 0" (click)='onChangeFirst()'>changed</button>
+            <button class="btn btn-danger mt-3" *ngIf="serverElements.length > 0" (click)='deleteElement()'>changed</button>
+            <app-server-element
+            *ngFor="let item of serverElements"
+            [srvElement]='item'
+            [name]='item.name'>
+            <p #contentparagraph>
+                <strong *ngIf="item.type === 'server'" style="color: red;">{{item.content}}</strong>
+                <em *ngIf="item.type === 'blueprint'">{{item.content}}</em>
+            </p>
+            </app-server-element>
+        </div>
+        <!-- <app-base></app-base>
         <hr>
         <app-warning-alert></app-warning-alert>
         <hr>
         <app-success-alert></app-success-alert>
+        <hr> -->
+       
+        <!-- <app-server-element></app-server-element> -->
     </div>
 </div>
