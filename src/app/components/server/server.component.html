@@ -1,0 +1,11 @@
+<div>
+    <!-- <label>twowaybinding</label>
+    <input type="text" class="form-control" (input)="twoWayBinding($event)">
+    <p class="mt-1">{{ twoWayBin }}</p> -->
+    <label>twowaybinding</label>
+    <input type="text" class="form-control" [(ngModel)]="data">
+    <p class="mt-1">{{ data }}</p>
+    <p>server name is <strong>{{server}} </strong> then id <strong> {{serverId}}</strong></p>
+    <button (click)="onServerCreated()" [disabled]="!isDisabled" class="btn btn-primary">Button</button>
+    <p *ngIf="serverCreatedStatus">{{serverCreatedStatus}}</p>
+</div>
