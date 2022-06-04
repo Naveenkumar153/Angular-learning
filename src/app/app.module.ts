@@ -9,6 +9,11 @@ import { SuccessAlert } from './components/SuccessAlert/successalert.component';
 import { WarningAlert } from './components/WarningAlert/warningalert.component';
 import { CockpitComponent } from './components/cockpit/cockpit.component';
 import { ServerElementComponent } from './components/server-element/server-element.component'
+
+import { NewAccountComponent } from './components/Services/new-account/new-account.component'; 
+import { AccountComponent } from './components/Services/account/account.component';
+import { AccountService } from './account.services';
+import { LoggerSerives } from './logger.services';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +23,14 @@ import { ServerElementComponent } from './components/server-element/server-eleme
     WarningAlert,
     CockpitComponent,
     ServerElementComponent,
+    NewAccountComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AccountService,LoggerSerives],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

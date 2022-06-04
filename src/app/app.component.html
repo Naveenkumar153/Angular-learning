@@ -1,5 +1,4 @@
-
-<div class="container">
+<!-- <div class="container">
     <app-cockpit 
         (serCreated)='onServerAdded($event)'
         (bluePrintCreated)='onBluePrintAdded($event)'
@@ -18,6 +17,8 @@
             </p>
             </app-server-element>
         </div>
+     </div>
+</div>    -->
         <!-- <app-base></app-base>
         <hr>
         <app-warning-alert></app-warning-alert>
@@ -26,5 +27,34 @@
         <hr> -->
        
         <!-- <app-server-element></app-server-element> -->
+<!-- 
+<div class="container">
+    <h4 class="text-center">Share the data into parent to child and child to parent</h4>
+    <div class="row">
+        <app-server (courseData)="getCourseData($event)"></app-server>
+    </div>
+    <div class="row">
+        <app-base *ngFor="let course of courses"
+         [courseDetails]="course"
+         >
+         <p>
+             <strong>Price  : $ {{course.coursePrice}} </strong>
+             <br>
+             <em>Review : {{course.courseReview}} </em>
+         </p>
+        </app-base>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xxl-12 col-md-8 col-md-offset-2">
+            <app-new-account></app-new-account>
+            <hr>
+            <app-account *ngFor="let acc of account; let i = index"
+            [account]="acc"
+            [id]="i"
+            ></app-account>
+        </div>
     </div>
 </div>
