@@ -34,18 +34,28 @@
 // }
 
 
-import { Component, OnInit,DoCheck} from '@angular/core';
+import { Component, OnInit,DoCheck, ViewEncapsulation, ViewChild,ComponentFactoryResolver} from '@angular/core';
 import { AccountService } from './account.services';
+import { BaseComponent, BaseComponent2 } from './components/base/base.component';
+import { HostDirectives } from './host.directive';
 
 @Component({
   selector   : 'app-root',
   templateUrl: './app.component.html',
   styleUrls  : ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
   // providers:[AccountService]
 })
 export class AppComponent implements OnInit,DoCheck{
+
+  name : string = 'Learn ViewEncapsulation';
+  name2: string = 'Angular';
+
+  @ViewChild(HostDirectives, {static:true}) childRef:HostDirectives;
+  components = [BaseComponent,BaseComponent2]
+
   account : {name:string,status:string}[] = [];
-  constructor(private accounts:AccountService){}
+  constructor(private accounts:AccountService, public factoryRes:ComponentFactoryResolver){}
   ngOnInit() {
     this.account = this.accounts.accounts
     console.log(this.account);
@@ -53,6 +63,14 @@ export class AppComponent implements OnInit,DoCheck{
   ngDoCheck() {
   }
 
+  show(id){
+    // console.log(this.childRef);
+    // this.childRef.viewRef.clear();
+    const resolvedFacotry = this.factoryRes.resolveComponentFactory(this.components[id])
+    this.childRef.viewRef.createComponent(resolvedFacotry);
+
+    
+  }
 
 
 

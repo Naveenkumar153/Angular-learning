@@ -46,7 +46,7 @@
     </div>
 </div> -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-xxl-12 col-md-8 col-md-offset-2">
             <app-new-account></app-new-account>
@@ -57,4 +57,14 @@
             ></app-account>
         </div>
     </div>
-</div>
+</div> -->
+
+<!-- learn viewEncapsulation -->
+
+<app-base [name]="name"></app-base>
+<h3 class="test">{{ name2 }}</h3>
+
+<button class="btn btn-primary m-3" (click)="show(0)">BaseComponent</button>
+<button class="btn btn-primary  m-3" (click)="show(1)">BaseComponent2</button>
+
+<ng-template host></ng-template>
